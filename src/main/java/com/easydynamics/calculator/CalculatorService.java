@@ -31,7 +31,16 @@ public class CalculatorService {
                 sumValue += carryValue;
             }
         }
-        return new StringBuilder(sumValue).reverse().toString();
+
+        sumValue = new StringBuilder(sumValue).reverse().toString();
+
+
+        // remove zero in front
+        for(int i=0; i<sumValue.length(); i++){
+            if(sumValue.charAt(i) == '0')
+        }
+
+        return removeZero(new StringBuilder(sumValue).reverse().toString());
     }
 
 
@@ -341,5 +350,27 @@ public class CalculatorService {
         ch[i] = ch[j];
         ch[j] = temp;
         return String.valueOf(ch);
+    }
+
+
+    /**
+     * This method removes leading zero
+     * @param str the string potentially it might have a leading zero
+     * @return string number without leading zero
+     */
+    public static String removeZero(String str)
+    {
+        // Count leading zeros
+        int i = 0;
+        while (i < str.length() && str.charAt(i) == '0') {
+            i++;
+        }
+
+        StringBuffer sb = new StringBuffer(str);
+
+
+        sb.replace(0, i, "");
+
+        return sb.toString();  // return in String
     }
 }
