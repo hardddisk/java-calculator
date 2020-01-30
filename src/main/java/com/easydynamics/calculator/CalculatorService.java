@@ -32,14 +32,6 @@ public class CalculatorService {
             }
         }
 
-        sumValue = new StringBuilder(sumValue).reverse().toString();
-
-
-        // remove zero in front
-        for(int i=0; i<sumValue.length(); i++){
-            if(sumValue.charAt(i) == '0')
-        }
-
         return removeZero(new StringBuilder(sumValue).reverse().toString());
     }
 
